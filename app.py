@@ -46,28 +46,21 @@ def clean_data(df):
 #MAIN---------------------------------------------------------------------------------------------------------------------------------------------------
 
 def main():
-    #Imagen side
-     st.sidebar.image("bomba.jpeg",use_column_width=True)
-     st.title("Hidrostal")
-
-     nombre=st.text_input("Porfavor,ingresa tu nombre")
-     if nombre:
-        st.write(f"Bienvenido,{nombre}!¿Te gustaría preguntarle algo a la IA sobre la empresa?")
-         # Verificar si se ingresó un nombre y mostrar un mensaje de bienvenida
-        # Esperar a que se presione Enter antes de limpiar la caja de texto
+    
+ # Esperar a que se presione Enter antes de limpiar la caja de texto
      archivo_csv=st.file_uploader("Introduzca un csv",type=['csv'])
      if archivo_csv is not None:
-        # Leer el CSV en un DataFrame de pandas
+ # Leer el CSV en un DataFrame de pandas
         df = pd.read_csv(archivo_csv)
     
-        # Mostrar el DataFrame original
+ # Mostrar el DataFrame original
         st.subheader('Datos Originales')
         st.write(df)
     
-        # Limpiar el DataFrame
+ # Limpiar el DataFrame
         cleaned_df = clean_data(df)
     
-        # Mostrar el DataFrame limpio
+ # Mostrar el DataFrame limpio
         st.subheader('Datos Limpiados')
         st.write(cleaned_df)
 if __name__ == "__main__":
